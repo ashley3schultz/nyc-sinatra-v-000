@@ -42,7 +42,6 @@ class FiguresController < ApplicationController
 
   post '/figures/:id' do
     @figure = Figure.find("#{params[:id]}")
-    #################################################################
     @landmarks = []
     if !params[:landmark][:name].empty?
       @landmarks << Landmark.create(name: params[:landmark][:name])
@@ -67,7 +66,6 @@ class FiguresController < ApplicationController
     @figure.landmarks = @landmarks
     @figure.titles = @titles
     @figure.save
-    #########################################################################
     redirect "/figures/#{@figure.id}"
   end
 
