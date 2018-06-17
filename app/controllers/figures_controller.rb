@@ -42,6 +42,31 @@ class FiguresController < ApplicationController
 
   post '/figures/:id' do
     @figure = Figure.find("#{params[:id]}")
+    #################################################################
+    @landmarks = []
+    if !params[:landmark][:name].empty?
+      @landmarks << Landmark.create(name: params[:landmark][:name])
+    end
+    if params[:figure][:landmark_ids] != nil
+      params[:figure][:landmark_ids].each do |landmark|
+        id = landmark.gsub("landmark_","").to_i
+        @landmarks << Landmark.find(id)
+      end
+    end
+    @titles = []
+    if !params[:title][:name].empty?
+      @titles << Title.create(params[:title])
+    end
+    if params[:figure][:title_ids] != nil
+      params[:figure][:title_ids].each do |title|
+        id = title.gsub("title_","").to_i
+        @titles << Title.find(id)
+      end
+    end
+    @figure = Figure.update(name: "#{params[:figure][:name]}")
+    @figure.landmarks = @landmarks
+    @figure.titles = @titles
+    #########################################################################
     redirect "/figures/#{@figure.id}"
   end
 
