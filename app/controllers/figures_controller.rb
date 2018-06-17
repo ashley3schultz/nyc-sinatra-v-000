@@ -33,8 +33,8 @@ class FiguresController < ApplicationController
     end
 
     @figure = Figure.create(params[:figure])
-    @figure.landmarks << @landmarks
-    @figure.titles << @titles
+    @figure.landmarks = @landmarks
+    @figure.titles = @titles
     redirect "/figures/#{@figure.id}"
   end
 
