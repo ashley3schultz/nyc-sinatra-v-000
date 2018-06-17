@@ -13,7 +13,7 @@ class FiguresController < ApplicationController
     #if !params[:landmark][:name].empty? && !params[:landmark][:year].empty?
     #  @landmarks << Landmark.create(params[:landmark])
     #end
-  
+
     if params[:figure][:landmark_ids] != nil
       params[:figure][:landmark_ids].each do |landmark|
         id = landmark.gsub("landmark_","").to_i
@@ -21,9 +21,9 @@ class FiguresController < ApplicationController
       end
     end
     @titles = []
-    #if !params[:title][:name].empty?
-    #  @titles << Title.find_by(name: params[:title][:name]) || Title.create(params[:title])
-    #end
+    if !params[:title][:name].empty?
+      @titles << Title.find_by(name: params[:title][:name]) || Title.create(params[:title])
+    end
       binding.pry
     if params[:figure][:title_ids] != nil
       params[:figure][:title_ids].each do |title|
