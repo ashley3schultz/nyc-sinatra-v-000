@@ -29,8 +29,11 @@ class FiguresController < ApplicationController
         @titles << Title.find(id)
       end
     end
+    n = params[:figure][:name]
+    l = @landmarks
+    t = @titles
     binding.pry
-    @figure = Figure.find_by(name: params[:figure][:name]) || Figure.create(name: params[:figure][:name])
+    @figure = Figure.find_by(name: params[:figure][:name]) || Figure.create(:name => params[:figure][:name])
     @figure.landmarks = @landmarks
     @figure.titles = @titles
     #binding.pry
