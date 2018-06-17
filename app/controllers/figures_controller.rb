@@ -17,7 +17,7 @@ class FiguresController < ApplicationController
     end
     @figure = Figure.create(name: params[:figure])
     @figure.titles << @titles
-    @landmarks.figure_id == @figure.id
+    @landmarks.figure_id = @figure.id
     binding.pry
     redirect "/figures/#{@figure.id}"
   end
