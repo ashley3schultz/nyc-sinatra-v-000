@@ -26,10 +26,10 @@ class FiguresController < ApplicationController
       @titles << Title.create(params[:title])
     end
     if params[:figure][:title_ids] != nil
-    params[:figure][:title_ids].each do |title|
-      id = title.split("title_").first.to_i
-      @titles << Title.find(id)
-      binding.pry
+      params[:figure][:title_ids].each do |title|
+        id = title.split("title_").first.to_i
+        @titles << Title.find(id)
+        binding.pry
       end
     end
 
