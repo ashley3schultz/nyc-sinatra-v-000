@@ -30,7 +30,7 @@ class FiguresController < ApplicationController
       end
     end
     binding.pry
-    @figure = Figure.create(name: params[:figure][:name])
+    @figure = Figure.find_by(name: params[:figure][:name]) || Figure.create(name: params[:figure][:name])
     @figure.landmarks = @landmarks
     @figure.titles = @titles
     #binding.pry
