@@ -10,9 +10,9 @@ class FiguresController < ApplicationController
 
   post '/figures' do
     @landmarks = []
-    #if !params[:landmark][:name].empty? && !params[:landmark][:year].empty?
-    #  @landmarks << Landmark.create(params[:landmark])
-    #end
+    if !params[:landmark][:name].empty? && !params[:landmark][:year].empty?
+      @landmarks << Landmark.create(params[:landmark])
+    end
 
     if params[:figure][:landmark_ids] != nil
       params[:figure][:landmark_ids].each do |landmark|
@@ -22,7 +22,7 @@ class FiguresController < ApplicationController
     end
     @titles = []
     if !params[:title][:name].empty?
-      @titles << Title.find_by(name: params[:title][:name]) || Title.create(params[:title])
+      @titles << Title.create(params[:title])
     end
       binding.pry
     if params[:figure][:title_ids] != nil
