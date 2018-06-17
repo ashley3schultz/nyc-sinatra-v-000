@@ -29,11 +29,9 @@ class FiguresController < ApplicationController
         @titles << Title.find(id)
       end
     end
-    #@figure = Figure.create(params[:figure])
-    #@figure = Figure.create(name: params[:figure][:name], titles = @titles, landmarks: @landmarks)
-    binding.pry
-    #@figure.landmarks = @landmarks
-    #@figure.titles = @titles
+    @figure = Figure.create(params[:figure])
+    @figure.landmarks = @landmarks
+    @figure.titles = @titles
     redirect "/figures/#{@figure.id}"
   end
 
