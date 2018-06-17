@@ -26,7 +26,7 @@ class FiguresController < ApplicationController
     end
     if params[:figure][:title_ids] != nil
     params[:figure][:title_ids].each do |title|
-      id = title.split("title_")first.to_i
+      id = title.split("title_").first.to_i
       @titles << Title.find(id)
       end
     end
