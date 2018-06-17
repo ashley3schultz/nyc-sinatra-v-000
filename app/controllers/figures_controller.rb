@@ -16,7 +16,7 @@ class FiguresController < ApplicationController
       @titles = Title.create(params[:title])
     end
     @figure = Figure.create(params[:figure])
-    #@figure.titles << @titles
+    @figure.titles << @titles
     #@figure.landmarks << @landmarks
     redirect "/figures/#{@figure.id}"
   end
