@@ -28,10 +28,10 @@ class FiguresController < ApplicationController
 
       params[:figure][:title_ids].each do |title|
         id = title.gsub("title_","").to_i
-        binding.pry
         @titles << Title.find(id)
       end
     end
+    binding.pry
     #@figure.landmarks = @landmarks
     #@figure.titles = @titles
     redirect "/figures/#{@figure.id}"
