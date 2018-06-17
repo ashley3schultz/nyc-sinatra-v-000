@@ -17,6 +17,7 @@ class FiguresController < ApplicationController
     params[:figure][:landmark_ids].each do |landmark|
       id = landmark.split("landmark_").first.to_i
       @Landmarks << Landmark.find(id)
+      end
     end
 
     @titles = []
@@ -27,6 +28,7 @@ class FiguresController < ApplicationController
     params[:figure][:title_ids].each do |title|
       id = title.split("title_")first.to_i
       @titles << Title.find(id)
+      end
     end
 
     @figure = Figure.create(params[:figure])
