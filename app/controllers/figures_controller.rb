@@ -24,7 +24,6 @@ class FiguresController < ApplicationController
     if !params[:title][:name].empty?
       @titles << Title.find_by(name: params[:title][:name]) || Title.create(params[:title])
     end
-    binding.pry
     if params[:figure][:title_ids] != nil
       binding.pry
       params[:figure][:title_ids].each do |title|
