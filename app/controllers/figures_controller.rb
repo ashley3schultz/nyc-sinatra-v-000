@@ -14,9 +14,9 @@ class FiguresController < ApplicationController
       @Landmarks << Landmark.create(params[:landmark])
     end
     if params[:figure][:landmark_ids] != nil
-    params[:figure][:landmark_ids].each do |landmark|
-      id = landmark.split("landmark_").first.to_i
-      @Landmarks << Landmark.find(id)
+      params[:figure][:landmark_ids].each do |landmark|
+        id = landmark.split("landmark_").first.to_i
+        @Landmarks << Landmark.find(id)
       end
     end
 
