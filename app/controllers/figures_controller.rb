@@ -49,7 +49,6 @@ class FiguresController < ApplicationController
     @titles = Title.all
     @landmarks = Landmark.all
     @figure = Figure.find("#{params[:id].to_i}")
-    binding.pry
     erb :'figures/show'
   end
 
