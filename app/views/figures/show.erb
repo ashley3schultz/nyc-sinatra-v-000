@@ -1,15 +1,16 @@
-<h1><%= @slug.name %></h1>
+<h1><%= @figure.name %></h1>
+
 
 <ul>
-  <% @slug.titles.each do |i| %>
-  <li><a href="/titles/<%=i.slug%>"></a>"><h3><%= i.name %></h3></a></li>
-  <% end %>
+  <%@figure.titles.each do |i|%>
+    <%=i.name%>
+  <%end%>
 </ul>
 
 <ul>
-  <% @slug.landmarks.each do |i| %>
-  <li><a href="/landmarks/<%=i.slug%>"></a>"><h3><%= i.name %></h3></a></li>
+  <% @figure.landmarks.each do |i| %>
+    <%= i.name %>
   <% end %>
 </ul>
 
-<a href="/figures/<%=i.slug%>/edit"><input type="button" value="Edit"></a>
+<a href="/figures/<%=@figure.id%>/edit">Edit Figure</a>
