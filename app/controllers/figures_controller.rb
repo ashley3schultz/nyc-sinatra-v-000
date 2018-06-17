@@ -25,7 +25,7 @@ class FiguresController < ApplicationController
       @titles << Title.find_by(name: params[:title][:name]) || Title.create(params[:title])
     end
     if params[:figure][:title_ids] != nil
-      
+
       params[:figure][:title_ids].each do |title|
         id = title.split("title_").first.to_i
         binding.pry
