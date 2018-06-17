@@ -32,7 +32,7 @@ class FiguresController < ApplicationController
     @figure = Figure.create(name: params[:figure][:name])
     @figure.landmarks = @landmarks
     @figure.titles = @titles
-    binding.pry
+    #binding.pry
     redirect "/figures/#{@figure.id}"
   end
 
