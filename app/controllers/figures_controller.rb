@@ -15,10 +15,9 @@ class FiguresController < ApplicationController
     if !params[:title][:name].empty?
       @titles = Title.create(params[:title])
     end
-    @figure = Figure.create(params[:figure])
+    @figure = Figure.create(name: params[:figure])
     @figure.titles << @titles
-    @figure.landmarks << @landmarks
-    @figure.save
+    @landmarks.figure_id == @figure.id
     redirect "/figures/#{@figure.id}"
   end
 
