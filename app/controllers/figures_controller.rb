@@ -10,7 +10,6 @@ class FiguresController < ApplicationController
 
   post '/figures' do
     @figure = Figure.create(params[:figure])
-    binding.pry
     #@landmarks = []
     #if !params[:landmark][:name].empty?
     #  @Landmarks << Landmark.create(params[:landmark])
@@ -21,12 +20,12 @@ class FiguresController < ApplicationController
     #    @Landmarks << Landmark.find(id)
     #  end
     #end
-
     @titles = []
     if !params[:title][:name].empty?
       @titles << Title.create(params[:title])
     end
     if params[:figure][:title_ids] != nil
+      binding.pry
       params[:figure][:title_ids].each do |title|
         id = title.split("title_").first.to_i
         @titles << Title.find(id)
