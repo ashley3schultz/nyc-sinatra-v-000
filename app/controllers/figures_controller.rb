@@ -12,7 +12,7 @@ class FiguresController < ApplicationController
     @landmarks = []
     binding.pry
     if !params[:landmark][:name].empty?
-      @Landmarks << Landmark.create(params[:landmark][:name])
+      @Landmarks << Landmark.create(params[:landmark])
     end
     if params[:figure][:landmark_ids] != nil
     params[:figure][:landmark_ids].each do |landmark|
@@ -23,7 +23,7 @@ class FiguresController < ApplicationController
 
     @titles = []
     if !params[:title][:name].empty?
-      @titles << Title.create(params[:title][:name])
+      @titles << Title.create(params[:title])
     end
     if params[:figure][:title_ids] != nil
     params[:figure][:title_ids].each do |title|
