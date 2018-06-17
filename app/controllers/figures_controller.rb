@@ -9,28 +9,28 @@ class FiguresController < ApplicationController
   end
 
   post '/figures' do
-    #@figure = Figure.create(params[:figure])
     @landmarks = []
     if !params[:landmark][:name].empty?
       @Landmarks << Landmarks.find_by(name: params[:landmark][:name]) || Landmark.create(params[:landmark])
     end
-    #if params[:figure][:landmark_ids] != nil
-    #  params[:figure][:landmark_ids].each do |landmark|
-    #    id = landmark.gsub("landmark_","").to_i
-    #    @Landmarks << Landmark.find(id)
-    #  end
-    #end
+    if params[:figure][:landmark_ids] != nil
+      params[:figure][:landmark_ids].each do |landmark|
+        id = landmark.gsub("landmark_","").to_i
+        @Landmarks << Landmark.find(id)
+      end
+    end
     @titles = []
     if !params[:title][:name].empty?
       @titles << Title.find_by(name: params[:title][:name]) || Title.create(params[:title])
     end
     if params[:figure][:title_ids] != nil
-
       params[:figure][:title_ids].each do |title|
         id = title.gsub("title_","").to_i
         @titles << Title.find(id)
       end
     end
+    #@figure = Figure.create(params[:figure])
+    #@figure = Figure.create(name: params[:figure][:name], titles = @titles, landmarks: @landmarks)
     binding.pry
     #@figure.landmarks = @landmarks
     #@figure.titles = @titles
