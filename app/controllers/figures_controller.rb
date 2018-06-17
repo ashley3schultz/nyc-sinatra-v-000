@@ -20,9 +20,9 @@ class FiguresController < ApplicationController
       end
     end
     @titles = []
-    if !params[:title][:name].empty?
-      @titles << Title.find_by(name: params[:title][:name]) || Title.create(params[:title])
-    end
+    #if !params[:title][:name].empty?
+    #  @titles << Title.find_by(name: params[:title][:name]) || Title.create(params[:title])
+    #end
     if params[:figure][:title_ids] != nil
       params[:figure][:title_ids].each do |title|
         id = title.gsub("title_","").to_i
