@@ -66,6 +66,7 @@ class FiguresController < ApplicationController
     @figure = Figure.update(name: "#{params[:figure][:name]}")
     @figure.landmarks = @landmarks
     @figure.titles = @titles
+    @figure.save
     #########################################################################
     redirect "/figures/#{@figure.id}"
   end
