@@ -2,6 +2,6 @@
 <a href="/landmarks/new">Create New</a>
 <ol>
   <% @list.each do |i| %>
-    <li><a href="/landmarks/<%=i.id%>"><%=i.name%></a></li>
+    <li><a href="/landmarks/<%=i.id%>"><%= "#{i.name} - #{i.year_completed}" %></a></li>
   <% end %>
   </ol>
