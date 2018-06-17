@@ -29,7 +29,6 @@ class FiguresController < ApplicationController
       params[:figure][:title_ids].each do |title|
         id = title.split("title_").first.to_i
         @titles << Title.find(id)
-        binding.pry
       end
     end
     #@figure.landmarks = @landmarks
