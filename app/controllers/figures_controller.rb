@@ -13,7 +13,7 @@ class FiguresController < ApplicationController
     if !params[:landmark][:name].empty? && !params[:landmark][:year].empty?
       @landmarks << Landmark.create(params[:landmark])
     end
-    binding.pry
+    #binding.pry
     if params[:figure][:landmark_ids] != nil
       params[:figure][:landmark_ids].each do |landmark|
         id = landmark.gsub("landmark_","").to_i
