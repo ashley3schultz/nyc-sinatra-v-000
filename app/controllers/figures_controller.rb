@@ -16,7 +16,7 @@ class FiguresController < ApplicationController
     end
     #if params[:figure][:landmark_ids] != nil
     #  params[:figure][:landmark_ids].each do |landmark|
-    #    id = landmark.split("landmark_").first.to_i
+    #    id = landmark.gsub("landmark_","").to_i
     #    @Landmarks << Landmark.find(id)
     #  end
     #end
@@ -27,7 +27,7 @@ class FiguresController < ApplicationController
     if params[:figure][:title_ids] != nil
 
       params[:figure][:title_ids].each do |title|
-        id = title.split("title_").first.to_i
+        id = title.gsub("title_","").to_i
         binding.pry
         @titles << Title.find(id)
       end
