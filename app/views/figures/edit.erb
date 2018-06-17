@@ -5,13 +5,13 @@
     <input type="text" name="figure[name]" id="figure_name" value="<%=@figure.name%">></p>
 
   <h2>Titles</h2>
-  <% @titles.each { |title| %>
+  <% @titles.each do |title| %>
       <input type="checkbox"
       name="figure[title_ids][]"
       value="<%= title.id %>"
       id="title_<%= title.id %>" <%='checked' if @figure.titles.include?(title) %>>
       <%= title.name %>
-    <%}%>
+    <%end%>
 
   <h2>Create New Title:</h2>
     <p><input type="text" name="title[name]" id="new_title"></p>
