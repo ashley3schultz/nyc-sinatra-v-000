@@ -9,7 +9,7 @@
         <input type="checkbox"
         name="figure[title_ids][]"
         value="<%= title.id %>"
-        id="title_<%= title.id %>" <%='checked' if @figure.titles.include?(title) %>>
+        id="title_<%= title.id %>" <%='checked' if @figure.titles.include?(title)%>>
         <%= title.name %>
       <%end%>
 
