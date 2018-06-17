@@ -27,8 +27,8 @@ class FiguresController < ApplicationController
     params[:figure][:title_ids].each do |title|
       id = title.split("title_")first.to_i
       @titles << Title.find(id)
-    end  
-    
+    end
+
     @figure = Figure.create(params[:figure])
     @figure.landmarks << @landmarks
     @figure.titles << @titles
