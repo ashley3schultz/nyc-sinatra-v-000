@@ -1,7 +1,7 @@
 <h1>Figures</h1>
 <ol>
     <% @list.each do |i| %>
-      <h3><li><a href="/<%=i.class.to_s.downcase%>s/<%=i.id%>"><%=i.name%></a></li></h3>
+      <h3><li><a href="/figures/<%=i.id%>"><%=i.name%></a></li></h3>
     <% end %>
   </ol>
 
