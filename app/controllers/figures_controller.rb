@@ -28,25 +28,7 @@ class FiguresController < ApplicationController
   end
 
   post '/figures/:id' do
-
-    @landmarks = []
-    params[:landmark].each do |l|
-      landmark = Landmark.find_by(name: l.name) || Landmark.create(l)
-      @landmarks << landmark
-    end
-    if !params[:landmark_name].empty?
-      @landmarks << Landmark.create(name: params[:landmark_name], year: params[:landmark_year])
-    end
-
-    @titles = []
-    params[:title].each do |t|
-      title = Title.find_by(name: t.name) || Title.create(t)
-      @titles << title
-    end
-    if !params[:title_name].empty?
-      @titles << Title.create(name: params[:title_name])
-    end
-
+    @figure = Figure.find("#{params[:id]}")
     @figure = Figure.update(name: params[:figure_name], titles: "#{@titles}", landmarks: "#{@landmarks}")
 
     redirect "/figures/#{@figure.id}"
